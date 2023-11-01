@@ -1,0 +1,35 @@
+.order-row {
+  border: 1px solid red;
+  display: grid;
+  grid-template-columns: repeat(3, 33.33%);
+}
+
+.order-title {
+  border: 1px solid black;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  padding: 8px;
+}
+
+.general {
+  border: 1px solid yellow;
+  line-height: 2rem;
+  padding: 8px;
+}
+
+.general .status-note {
+  display: flex;
+  flex-direction: column;
+}
+
+.billing {
+  border: 1px solid green;
+  line-height: 2rem;
+  padding: 8px;
+}
+
+.shipping {
+  border: 1px solid blue;
+  line-height: 2rem;
+  padding: 8px;
+}

@@ -1,0 +1,10 @@
+<div class="categories-body">
+  <div class="categories-container">
+
+    <categories-form [categories]="categories" (categorySaving)="save($event)"></categories-form>
+
+    <categories-table [categories]="categories" (categoryEditing)="edit($event)"
+      (categoryDeleting)="delete($event)"></categories-table>
+
+  </div>
+</div>

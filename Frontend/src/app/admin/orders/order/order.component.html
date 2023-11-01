@@ -1,0 +1,25 @@
+<div class="order-body" *ngIf="order !== undefined">
+
+  <div class="buttons">
+    <button type="button">
+      <h1>BACK TO ORDERS</h1>
+    </button>
+    <button type="button">
+      <h1>UPDATE ORDER</h1>
+    </button>
+  </div>
+
+  <order-details [order]="order"></order-details>
+
+  <pdf-invoice *ngIf="order.paid" [order]="order"></pdf-invoice>
+  <div *ngIf="!order.paid">
+    <h2>PDF Accounting</h2>
+    <p>No pdf invoice, order not paid!</p>
+  </div>
+
+  <items [order]="order"></items>
+
+</div>
+
+<!-- Mejl sa predracunom se posalje cim se narudzba primi i onda kada se menja njen status. -->
+<!-- Statusi narudzbe: primljeno, spremno, poslato (On Hold, Processing, Completed, Cancelled) -->

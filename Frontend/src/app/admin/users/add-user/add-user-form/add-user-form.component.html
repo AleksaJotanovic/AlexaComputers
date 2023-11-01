@@ -1,0 +1,96 @@
+<div class="add-user-body">
+  <form [formGroup]="userForm" (ngSubmit)="emitOnUserSave(userForm)">
+    <div class="form-div">
+      <label for="username">Username: </label>
+      <input type="text" id="username" formControlName="username">
+    </div>
+    <div class="form-div">
+      <label for="firstname">Firstname: </label>
+      <input type="text" id="firstname" formControlName="firstname">
+    </div>
+    <div class="form-div">
+      <label for="lastname">Lastname: </label>
+      <input type="text" id="lastname" formControlName="lastname">
+    </div>
+    <div class="form-div">
+      <label for="email">Email: </label>
+      <input type="email" id="email" formControlName="email">
+    </div>
+    <div class="form-div">
+      <label for="role">Role: </label>
+      <select formControlName="role" id="role">
+        <option value="Menager">Menager</option>
+        <option value="Seller">Seller</option>
+        <option value="Customer">Customer</option>
+      </select>
+    </div>
+    <div class="form-div">
+      <label for="password">Password: </label>
+      <input type="password" id="password" formControlName="password">
+    </div>
+    <div class="form-div">
+      <label for="confirm">Confirm password: </label>
+      <input type="password" id="confirm">
+    </div>
+
+    <h2>Customer billing address</h2>
+    <div formGroupName="billingAddress">
+      <div class="form-div">
+        <label for="country">Country: </label>
+        <select formControlName="country" id="country">
+          <option value="Serbia">Serbia</option>
+          <option value="Bosnia">Bosnia</option>
+          <option value="Croatia">Croatia</option>
+          <option value="Slovenia">Slovenia</option>
+        </select>
+      </div>
+      <div class="form-div">
+        <label for="city">City: </label>
+        <input type="text" id="city" formControlName="city">
+      </div>
+      <div class="form-div">
+        <label for="street">Street: </label>
+        <input type="text" id="street" formControlName="street">
+      </div>
+      <div class="form-div">
+        <label for="zip">Zip: </label>
+        <input type="text" id="zip" formControlName="zip">
+      </div>
+      <div class="form-div">
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" formControlName="phone">
+      </div>
+      <div class="form-div">
+        <label for="email2">Email: </label>
+        <input type="email" id="email2" formControlName="email">
+      </div>
+    </div>
+
+    <h2>Customer shipping address</h2>
+    <button type="button" (click)="copyFromBillingAddress()">Copy from billing address</button>
+    <div formGroupName="shippingAddress">
+      <div class="form-div">
+        <label for="country2">Country: </label>
+        <select formControlName="country" id="country2">
+          <option value="Serbia">Serbia</option>
+          <option value="Bosnia">Bosnia</option>
+          <option value="Croatia">Croatia</option>
+          <option value="Slovenia">Slovenia</option>
+        </select>
+      </div>
+      <div class="form-div">
+        <label for="city2">City: </label>
+        <input type="text" id="city2" formControlName="city">
+      </div>
+      <div class="form-div">
+        <label for="street2">Street: </label>
+        <input type="text" id="street2" formControlName="street">
+      </div>
+      <div class="form-div">
+        <label for="zip2">Zip: </label>
+        <input type="text" id="zip2" formControlName="zip">
+      </div>
+    </div>
+    <button type="submit">Save User</button>
+  </form>
+</div>

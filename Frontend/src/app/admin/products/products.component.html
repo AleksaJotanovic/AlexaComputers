@@ -1,0 +1,66 @@
+<!-- <div class="products-body">
+  <div class="table-options">
+
+    <div>
+      <input type="search" [(ngModel)]="filterString">
+    </div>
+
+    <div class="filters">
+      <select [(ngModel)]="categoryFilter">
+        <option ngValue="" (select)="init()">All Categories</option>
+        <option *ngFor="let category of categories | ctgIf" [ngValue]="category.name">{{category.name}}</option>
+      </select>
+      <select [(ngModel)]="filterPublished">
+        <option [ngValue]="null">Filter by Publish status</option>
+        <option [ngValue]="true">Published</option>
+        <option [ngValue]="false">Not published</option>
+      </select>
+      <select [(ngModel)]="filterStock">
+        <option [ngValue]="null">Filter by Stock status</option>
+        <option [ngValue]="1">In stock</option>
+        <option [ngValue]="0">Out of stock</option>
+      </select>
+      <select [(ngModel)]="filterPrice">
+        <option ngValue="">Sort By Price</option>
+        <option ngValue="asc">Ascending</option>
+        <option ngValue="desc">Descending</option>
+      </select>
+    </div>
+
+  </div>
+  <div>
+    <table class="zui-table">
+      <thead>
+        <tr>
+          <th>Slika</th>
+          <th>Naziv</th>
+          <th>Sifra</th>
+          <th>Pristupacnost</th>
+          <th>Kategorija</th>
+          <th>Cena</th>
+          <th>Opcije</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let product of products | searchFilter: filterString | ctgFilter: categoryFilter | publishedFilter: filterPublished | stockFilter: filterStock | priceFilter: filterPrice">
+          <td><img [src]="product.images[0]" alt="..."></td>
+          <td>{{product.name}}</td>
+          <td>{{product.sku}}</td>
+          <td [ngStyle]="{'color': product.inStock === 0 ? 'red' : 'green'}">{{product.inStock === 0 ? 'Out of stock'
+            : 'In stock'}} <small *ngIf="product.inStock > 0" style="color: black;">({{product.inStock}})</small></td>
+          <td>{{product.categoryName}}</td>
+          <td>{{product.salePrice}}</td>
+          <td>
+            <button type="button" [routerLink]="['/admin/products/edit-product', product._id]">edit</button>
+            <button type="button" (click)="delete(product._id)">delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div> -->
+
+<products-table [products]="products" [categories]="categories" (onProductsInit)="init()"
+  (onProductDelete)="delete($event)"></products-table>

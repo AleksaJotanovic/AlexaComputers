@@ -1,0 +1,45 @@
+<div class="order-row">
+  <div class="order-title">
+    <h1>Order #{{order.number}} Details</h1>
+  </div>
+  <div class="general">
+    <h3>General</h3>
+    <p>Order number: <strong>#{{order.number}}</strong></p>
+    <p>Date Created: <small>{{order.date}}</small></p>
+    <p>PC Build: <small>{{order.pcBuild ? 'Yes' : 'No'}}</small></p>
+    <p *ngIf="order.pcBuild">PC Build Name: <small>{{order.pcBuildName}}</small></p>
+    <div>
+      <div>
+        <label>Status: </label>
+        <select [(ngModel)]="order.status">
+          <option ngValue="Proceeding">Proceeding</option>
+          <option ngValue="Completed">Completed</option>
+          <option ngValue="Canceled">Canceled</option>
+          <option ngValue="On hold">On hold</option>
+        </select>
+      </div>
+      <div class="status-note">
+        <label>Status note:</label>
+        <textarea cols="30" rows="6"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="billing">
+    <h3>Billing</h3>
+    <p>{{order.billing.country}}</p>
+    <p>{{order.billing.city}}</p>
+    <p>{{order.billing.street}}</p>
+    <p>Email: <small><a href="#">{{order.billing.email}}</a></small></p>
+    <p>Phone: <small>{{order.billing.phone}}</small></p>
+  </div>
+  <div class="shipping">
+    <h3>Shipping</h3>
+    <p>{{order.shipping.country}}</p>
+    <p>{{order.shipping.city}}</p>
+    <p>{{order.shipping.street}}</p>
+    <p>Customer provided note: <br><small>{{order.usernote}}</small></p>
+    <hr>
+    <h3>Delivery service:</h3>
+    <h4>{{order.delivery_name}}</h4>
+  </div>
+</div>

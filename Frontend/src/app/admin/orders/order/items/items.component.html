@@ -1,0 +1,29 @@
+<div class="items-row">
+  <h2>Items ordered</h2>
+  <table class="zui-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of order.items">
+        <td style="display: flex;">
+          <img [src]="item.image" alt="..." width="50" height="50">
+          <p>{{item.name}}</p>
+        </td>
+        <td>${{item.price}}</td>
+        <td>{{item.quantity}}</td>
+        <td>${{item.price * item.quantity}}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <p>Subtotal: <small>${{order.subtotal}}</small></p>
+      <p>Shipping: <small>${{order.shippingCost}}</small></p>
+      <p>Grand Total: <small>${{order.grandTotal}}</small></p>
+    </tfoot>
+  </table>
+</div>

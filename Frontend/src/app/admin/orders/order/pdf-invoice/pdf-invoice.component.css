@@ -1,0 +1,11 @@
+.pdf-invoice {
+  border: 1px solid purple;
+  display: flex;
+  flex-direction: column;
+  line-height: 30px;
+  padding: 1rem 0 1rem 3rem;
+}
+
+.pdf-invoice button {
+  width: max-content;
+}

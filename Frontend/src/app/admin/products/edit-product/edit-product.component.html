@@ -1,0 +1,92 @@
+<div class="add-product-body">
+  <div class="add-product-form">
+    <form [formGroup]="productForm" (ngSubmit)="update()">
+      <div class="col">
+        <label>Name:</label>
+        <input type="text" formControlName="name">
+      </div>
+      <div class="col">
+        <label>Manufacturer:</label>
+        <input type="text" formControlName="manufacturer">
+      </div>
+      <div class="col">
+        <label>UOM:</label>
+        <input type="text" formControlName="uom">
+      </div>
+      <div class="col">
+        <label>SKU:</label>
+        <input type="text" formControlName="sku">
+      </div>
+      <div class="col">
+        <label>Regular Price:</label>
+        <input type="number" formControlName="regularPrice">
+      </div>
+      <div class="col">
+        <label>Tax Class:</label>
+        <select formControlName="taxClass" (change)="countSalePrice()">
+          <option value="20">A Rates: 20%</option>
+          <option value="15">B Rates: 15%</option>
+          <option value="10">C Rates: 10%</option>
+        </select>
+      </div>
+      <div class="col">
+        <label>Sale Price: </label>
+        <input type="number" formControlName="salePrice">
+      </div>
+      <div class="col">
+        <label>Choose Category:</label>
+        <select formControlName="category_id">
+          <option value="">--choose category--</option>
+          <option *ngFor="let category of categories | ctgIf" [ngValue]="category._id">{{category.name}}</option>
+        </select>
+      </div>
+      <div class="col">
+        <label>Count in stock: </label>
+        <input type="number" formControlName="inStock">
+      </div>
+      <div class="col">
+        <label>Weight: </label>
+        <input type="number" formControlName="weight">
+      </div>
+      <div class="col">
+        <label>Garantee: </label>
+        <input type="number" formControlName="garantee">
+      </div>
+      <div class="specifications-arr">
+        <h3>Specifications:</h3>
+        <div formArrayName="specifications">
+          <div *ngFor="let specification of getSpecifications().controls; let i = index">
+            <div [formGroupName]="i">
+              <input type="text" formControlName="spec">
+              <input type="text" formControlName="value">
+            </div>
+          </div>
+        </div>
+        <button type="button" (click)="newSpecification()">+</button>
+      </div>
+
+      <!-- IMAGE GALLERY -->
+      <div class="product-gallery">
+        <div class="column-1">
+          <img #expandedImg alt="..." [src]="images[0]">
+        </div>
+        <div class="column-2">
+          <img *ngFor="let image of images" [src]="image" alt="..." (click)="setImageSrc($event, expandedImg)">
+        </div>
+      </div>
+
+      <!------------------->
+      <div class="col">
+        <h3>Publish: </h3>
+        <label for="published1">
+          <input type="radio" formControlName="published" id="published1" [value]="true">
+          Yes</label>
+        <label for="published2">
+          <input type="radio" formControlName="published" id="published2" [value]="false">
+          No</label>
+      </div>
+      <button type="submit">Save In Stock</button>
+      <button type="button" (click)="countSalePrice()">Cancel</button>
+    </form>
+  </div>
+</div>

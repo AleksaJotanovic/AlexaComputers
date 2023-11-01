@@ -1,0 +1,26 @@
+<div class="categories-form">
+  <form #categoryForm="ngForm" (ngSubmit)="emitCategorySaving(categoryForm, imageInput); categoryForm.reset()">
+    <div>
+      <label for="name">Name</label>
+      <input id="name" type="text" name="name" ngModel>
+    </div>
+    <div>
+      <label for="description">Description</label>
+      <textarea name="description" id="description" rows="7" ngModel></textarea>
+    </div>
+    <div>
+      <label for="parent">Parent Category</label>
+      <select name="parent_id" id="parent" ngModel>
+        <option ngValue="">--Parent Category--</option>
+        <option *ngFor="let category of categories | ptIf" [ngValue]="category._id">{{category.name}}</option>
+      </select>
+    </div>
+    <div>
+      <label>Image</label>
+      <input #imageInput type="file">
+    </div>
+    <div>
+      <button type="submit">Save Category</button>
+    </div>
+  </form>
+</div>

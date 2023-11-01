@@ -1,0 +1,12 @@
+/* ------------------------ */
+.order-body {
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}

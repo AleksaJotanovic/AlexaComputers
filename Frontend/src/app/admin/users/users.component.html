@@ -1,0 +1,8 @@
+<div class="users-body">
+  <div>
+    <button type="button" routerLink="/admin/users/add-user">Add New User</button>
+  </div>
+
+  <users-table [users]="users" (onUserDelete)="delete($event)"></users-table>
+
+</div>

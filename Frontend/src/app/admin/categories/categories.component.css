@@ -1,0 +1,14 @@
+.categories-body {
+  padding: 1rem 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.categories-container {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  justify-content: center;
+  gap: 2rem;
+}

@@ -1,0 +1,27 @@
+<div class="categories-table">
+  <table class="zui-table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Parent</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let category of categories">
+        <td><img [src]="category.image" alt="..." width="60" height="60"></td>
+        <td>{{category.name}}</td>
+        <td>{{category.parentName}}</td>
+        <td>{{category.description}}</td>
+        <td>
+          <!-- <button type="button" (click)="edit(category)">Edit</button>
+          <button type="button" (click)="delete(category._id)">Delete</button> -->
+          <button type="button" (click)="emitCategoryDeleting(category._id)">Delete</button>
+          <button type="button" (click)="emitCategoryEditing(category)">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
